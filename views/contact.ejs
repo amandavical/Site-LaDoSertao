@@ -1,0 +1,206 @@
+<%- include('./partials/header') %>
+		<main>
+  <style>
+    /* Custom CSS to beautify this example */
+.container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 100px auto; /* Adjusted margin value */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+.container .box {
+      position: relative;
+      width: calc(33.33% - 30px);
+      height: calc(300px - 30px);
+      background:rgb(160,82,45);
+      margin: 15px;
+      box-sizing: border-box;
+      overflow: hidden;
+      border-radius: 10px;
+}
+    
+.container .box .icon {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color:rgb(160,82,45);
+      transition: 0.5s;
+      z-index: 1;
+}
+
+.container .box:hover .icon {
+      top: 20px;
+      left: calc(50% - 40px);
+      width: 80px;
+      height: 80px;
+      border-radius: 50%; 
+}
+.container .box .icon .fa {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 80px;
+      transition: 0.5s;
+      color: #fff; 
+}
+
+.container .box:hover .icon .fa {
+      font-size: 40px;
+}
+
+.container .box .content {
+      position: absolute;
+      top: 100%; 
+      height: calc(100% - 100px);
+      text-align: center;
+      padding: 20px; 
+      box-sizing: border-box;
+      transition: 0.5
+}
+
+.container .box:hover .content {
+  top: 100px;
+  opacity: 1;
+}
+
+.container .box .content h3 {
+  margin: 0 0 10px; 
+  padding: 0; 
+  font-size: 24px;
+  color: #fff; 
+}
+
+.container .box .content p {
+  margin: 0; 
+  padding: 0; 
+  color: #fff; 
+}
+/*redes sociais*/
+.btn_social {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: auto;
+}
+.btn_social ul  {
+	width: auto; 
+	margin: auto;  
+}
+.btn_social ul li  { 
+  display: inline-block;
+	position: relative; 
+	background: rgb(160,82,45); 
+	list-style: none; 
+  margin: 5px;
+	z-index: 1; 
+	overflow: hidden; 
+	border-radius: 10px; 
+	font-size: 1.5em; 
+	text-align: center; 
+}
+  
+.btn_social ul li a {
+  width: 350px;
+  height: 60px;
+  line-height: 53px;
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  font-size: 90%; /* Adjust the font size as per your preference */
+  transition: .4s;
+}
+
+.btn_social ul li::before { 
+	position: absolute; 
+	content: ''; 
+	width: 100%; 
+	height: 100%; 
+	top: 90%; 
+	left: 0; 
+	background:#fff;;
+	z-index: -1; 
+	transform: scale(1); 
+	transition: .4s; 
+}
+.btn_social ul li:hover::before { transition: 0.4s; top: 0%; }
+.btn_social ul li a:hover       { color: #000000; ; }
+
+.msg {
+  text-align: center;
+}
+.msg h1 .msg h5 {
+  margin: 0;
+}
+/* Adicione as seguintes regras */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+ .text-center {
+  margin-top: -80px; /* Ajuste esse valor conforme necessário */
+}
+
+</style>
+</head>
+<body>
+ <div class="container">  
+   <div class="box"> 
+     <div class="icon">
+       <i class="fa fa-user" aria-hidden="true"></i></div>
+     <div class="content">
+       <h3>Atendimento</h3>
+       <p>O horário de atendimento é de segunda a domingo das 9:00 às 22:00 </p>
+     </div>
+    </div>
+   <div class="box"> 
+     <div class="icon">
+       <i class="fa fa-phone" aria-hidden="true"></i></div>
+     <div class="content">
+       <h3>Telefone</h3>
+       <p> O telefone para contato é (11) 2257-2541. Se prefirir, clique no link abaixo e fale conosco pelo WhatsApp
+ </p>
+     </div>
+    </div>
+  <div class="box"> 
+     <div class="icon">
+       <i class="fa fa-map-marker" aria-hidden="true"></i></div>
+     <div class="content">
+       <h3>Localização</h3>
+       <p>Rua Itajuípe,
+Planalto Ayrton Senna
+Fortaleza - CE 
+</p>
+     </div>
+    </div>
+  </div>
+ <div class="msg">
+  <h1>Faça sua encomenda no Lá do Sertão</h1>
+  <h5>Entre em contato conosco e faça sua encomenda.</h5>
+  <nav class="btn_social">
+    <ul>
+      <li>
+        <a href="https://web.whatsapp.com/send?phone=5585996243586" target="_blank" title="whatsapp">
+          <i class="fa fa-whatsapp">  Encomenda via WhatsApp</i>
+        </a>
+      </li>
+    </ul>
+  </nav>
+</div>
+	</main>
+  
+<footer style="margin-top: 50px;">
+  <%- include('./partials/footer') %>
+</footer>
+</body>
+</html>
+
+ 

@@ -1,0 +1,172 @@
+<%- include('./partials/header') %>
+<main>
+  <style>
+    /* Custom CSS to beautify this example */
+    #cake {
+      width: 25%;
+      height: auto;
+      margin-right: 8%;
+    }
+
+    h1 {
+      text-align: center;
+    }
+
+    #bolo,
+    #massa,
+    #recheio,
+    #cobertura {
+      font-family: "calibri";
+      font-size: larger;
+    }
+
+    label {
+      font-family: "calibri";
+      font-size: larger;
+    }
+
+    #forms {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 80vh;
+      font-size: 18px;
+    }
+
+    @media only screen and (max-width: 600px) {
+      /* Styles for mobile devices */
+      #forms {
+        flex-direction: column;
+        height: auto;
+      }
+
+      #cake {
+        width: 100%;
+        margin-bottom: 1px;
+      }
+
+      h1 {
+        font-size: 24px;
+      }
+
+      select,
+      button {
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      button {
+        margin-left: 0;
+      }
+    }
+  </style>
+
+  <div id="forms">
+    <img id="cake" src="img/cakemodel.jpeg" alt="Lá do Sertão">
+    <div>
+      <h1 style="font-family: Calibri, Arial, sans-serif;">Bolo sob Encomenda</h1>
+      <p>
+        <label for="tipo-do-bolo">Tipo do Bolo</label>
+        <select id="bolo" class="tipo" name="atributo-tipo-do-bolo" data-attribute_name="atributo-tipo-do-bolo" data-show_option_none="yes">
+          <option value="">Escolha uma opção </option>
+          <option value="Caseiro">Caseiro</option>
+          <option value="Piscininha">Piscininha</option>
+          <option value="Afogadinho">Afogadinho</option>
+          <option value="Naked">Naked</option>
+          <option value="ScrapCake">Scrapcake</option>
+          <option value="Chantininho">Chantininho</option>
+           <option value="Extra">----------- Opção extra (informar no pedido) ----------- </option>
+        </select>
+      </p>
+      <p>
+        <label for="massa-do-bolo">Massa do Bolo</label>
+        <select id="massa" class="massa" name="atributo-massa-do-bolo" data-attribute_name="atributo-massa-do-bolo" data-show_option_none="yes">
+          <option value="">Escolha uma opção</option>
+          <option value="Branca">Branca</option>
+          <option value="Amanteigada">Amanteigada</option>
+          <option value="Chocolate">Chocolate</option>
+          <option value="Mista">Mista</option>
+          <option value="Redvelvet">Redvelvet</option>
+         <option value="Extra">----------- Opção extra (informar no pedido) ----------- </option>
+        </select>
+      </p>
+      <p>
+        <label for="recheio-do-bolo">Recheio do Bolo</label>
+        <select id="recheio" class="recheio" name="atributo-recheio-do-bolo" data-attribute_name="atributo-recheio-do-bolo" data-show_option_none="yes">
+          <option value="">Escolha uma opção</option>
+          <option value="Ninho">Ninho</option>
+          <option value="Beijinho">Beijinho</option>
+          <option value="Chocolate">Chocolate</option>
+          <option value="Doce de leite">Doce de Leite</option>
+          <option value="Ninho com geleia de morango">Ninho com geleia de morango</option>
+          <option value="Ninho com geleia de abacaxi">Ninho com geleia de abacaxi</option>
+          <option value="❌">Não tem essa opção no meu pedido</option>
+       <option value="Extra">----------- Opção extra (informar no pedido) ----------- </option>
+        </select>
+      </p>
+      <p>
+        <label for="cobertura-do-bolo">Cobertura do Bolo</label>
+        <select id="cobertura" class="cobertura" name="atributo-cobertura-do-bolo" data-attribute_name="atributo-cobertura-do-bolo" data-show_option_none="yes">
+          <option value="">Escolha uma opção</option>
+          <option value="Ninho">Ninho</option>
+          <option value="Beijinho">Beijinho</option>
+          <option value="Chocolate">Chocolate</option>
+          <option value="Chocolate Meio Amargo">Chocolate Meio Amargo</option>
+          <option value="Doce de leite">Doce de leite</option>
+          <option value="Goiabada">Goiabada</option>
+          <option value="❌">Não tem essa opção no meu pedido</option>
+          <option value="Extra">----------- Opção extra (informar no pedido) ----------- </option>
+        </select>
+      </p>
+      <button type="button" class="btn btn-outline-dark" onclick="encomendar()" style="margin-right: 5px;">Visualizar pedido</button>
+      <button type="button" class="btn btn-outline-dark" onclick="enviarWhatsApp()" style="margin-left: 5px;">Enviar pedido</button>
+    </div>
+  </div>
+
+  <script>
+  function encomendar() {
+  const tipoBolo = document.getElementById("bolo").value;
+  const massaBolo = document.getElementById("massa").value;
+  const recheioBolo = document.getElementById("recheio").value;
+  const coberturaBolo = document.getElementById("cobertura").value;
+
+    const encomendaText = `Encomenda realizada:
+    Tipo do Bolo: ${tipoBolo}
+    Massa do Bolo: ${massaBolo}
+    Recheio do Bolo: ${recheioBolo}
+    Cobertura do Bolo: ${coberturaBolo}`;
+
+    alert(encomendaText);
+}
+
+// Function to handle sending the order via WhatsApp
+function enviarWhatsApp() {
+    const tipoBolo = document.getElementById("bolo").value;
+    const massaBolo = document.getElementById("massa").value;
+    const recheioBolo = document.getElementById("recheio").value;
+    const coberturaBolo = document.getElementById("cobertura").value;
+
+    const username = prompt("Por favor, insira seu nome:");
+
+    if (username) {
+      const encomendaText = `Encomenda de ${username} realizada:
+      Tipo do Bolo: ${tipoBolo}
+      Massa do Bolo: ${massaBolo}
+      Recheio do Bolo: ${recheioBolo}
+      Cobertura do Bolo: ${coberturaBolo}`;
+
+      const encodedText = encodeURIComponent(encomendaText);
+      const phoneNumber = "5585998136743";
+
+      window.open(`https://wa.me/${phoneNumber}?text=${encodedText}`);
+    } else {
+      alert("Por favor, insira um nome válido.");
+    }
+  }
+  </script>
+</main>
+<footer>
+  <%- include('./partials/footer') %>
+</footer>
+</body>
+</html>
